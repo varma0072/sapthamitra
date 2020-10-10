@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel='shortcut icon' type="image/png" href='https://img.icons8.com/dusk/64/000000/link.png' >
+    <title> sapta mitra website </title>
+    <style>
+        .footer{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="navbar navbar-expand-sm bg-success navbar-light fixed-top ">
+            <a class="navbar-brand" href="{% url 'homepage' %}"><img src="https://img.icons8.com/dusk/64/000000/link.png" class="w-25" /> SAPTA MITRA  </a>
+            
+            <!--toggle button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+            <!-- navigation links  -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+            <ul class="navbar-nav ml-auto " >
+                {% if user.is_authenticated %}
+                <li class="nav-item"> 
+                    <span class="navbar-text" >login as {{user.username}}</span> 
+                </li>
+                <li class="nav-item  "> 
+                    <a href="{% url 'logoutfunction' %}" class="nav-link"> logout </a>
+                </li>
+                {% endif %}
+
+            </ul>
+           </div>
+        </div>
+  <div class="container-fluid" >
+    {% block content %}
+    <!-- this is the area that all pages come and go -->
+    {% endblock %}
+  </div>
+  
+ <footer class="footer" >
+ <h4>created by MJ</h4>
+ </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

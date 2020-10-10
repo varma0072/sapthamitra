@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+<div style="height: 80px;" ></div>
+
+<div class="card-columns " >
+    {% for subjectso in subjectsob %}
+    <div class="card shadow  " >
+        <img class="card-img-top "  src="{{subjectso.image.url}}" alt="subject image">
+        <div class="card-body">
+          <h4 class="card-title">{{subjectso.subjectcode}}</h4>
+          <p class="card-text">{{subjectso.Name}}</p>
+          <a href="{% url 'detailpage' subjectso.subjectcode %} " class="btn btn-primary px-5 ">pdfs</a>
+        </div>
+      </div>
+    {% endfor %}   
+</div>
+
+
+</body>
+
+
+{% endblock %}
